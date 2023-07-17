@@ -7,18 +7,23 @@ export default {
 
   data(){
     return{
-      count: 0
+      author: {
+        name: 'John Doe',
+        books: [
+            'vue 2 - Advanced Guide',
+            'Vue 3 - Basic Guide',
+            'Vue 4 - The Mystery'
+        ]
+      }
     }
   },
-  methods: {
-    increment() {
-      this.count++
+ computed: {
+    publishedBooksMessage(){
+      return this.author.books.l
     }
-  },
-  mounted() {
-    this.increment()
-  }
+ }
 }
+
 
 </script>
 
