@@ -1,26 +1,34 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="hello kitty"/>
+  Count is: {{ count }}
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return{
+      obj: {
+        nested: { count: 0 },
+      }
+    }
+  },
+  methods: {
+    increment(){
+      this.count++
+    }
+  },
+  mounted() {
+    //在其他方法或是生命周期中也可以调用方法
+    this.increment()
   }
+  //
+  // mounted() {
+  //   console.log(this.count)
+  //
+  //   this.count = 3
+  // }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
