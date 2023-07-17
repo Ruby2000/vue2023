@@ -1,34 +1,27 @@
 <template>
-  Count is: {{ count }}
+  <button @click="increment">{{ count }}</button>
 </template>
 
 <script>
 export default {
-  data() {
+
+  data(){
     return{
-      obj: {
-        nested: { count: 0 },
-      }
+      count: 0
     }
   },
   methods: {
-    increment(){
+    increment() {
       this.count++
     }
   },
   mounted() {
-    //在其他方法或是生命周期中也可以调用方法
     this.increment()
   }
-  //
-  // mounted() {
-  //   console.log(this.count)
-  //
-  //   this.count = 3
-  // }
 }
+
 </script>
 
-<style>
+<style scoped>
 
 </style>
