@@ -1,16 +1,14 @@
 <template>
-  <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
-  <div v-else-if="data">
-    Data loaded:
-    <pre>{{ data }}</pre>
-  </div>
-  <div v-else> loading.... </div>
+  <input v-focus />
 </template>
 
 <script setup>
-import { useFetch } from "@/fetch"
+// 在模板中启用v-focus
 
-const  { data, error } = useFetch('...')
+const  vFocus = {
+  mounted: (el) => el.focus()
+  }
+
 </script>
 
 <style>
