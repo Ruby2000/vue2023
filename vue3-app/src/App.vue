@@ -1,14 +1,11 @@
 <template>
-  <input v-focus />
+ <button @click="count++">You clicked me {{ count }} times.</button>
 </template>
 
 <script setup>
-// 在模板中启用v-focus
+import { ref } from 'vue'
 
-const  vFocus = {
-  mounted: (el) => el.focus()
-  }
-
+const count = ref(0)
 </script>
 
 <style>
