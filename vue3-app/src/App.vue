@@ -1,12 +1,13 @@
 <template>
- Mouse position is at: {{ x }}, {{ y }}
+  <button @click="store.increment()">
+    From B: {{store.count}}
+  </button>
 </template>
 
 <script setup>
-import {useMouse} from "@/mouse";
+import { ref } from 'vue'
 
-const { x , y } = useMouse()
-
+const data = ref(null)
 </script>
 
 <style>
