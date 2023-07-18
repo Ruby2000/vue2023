@@ -1,20 +1,22 @@
 <template>
- <button @click="increment">count is :{{ count }}</button>
+ Mouse position is at: {{ x }}, {{ y }}
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-//响应式状态
-const  count = ref(0)
-//用来修改状态、触发更新的函数
-function increment(){
-  count.value++
+import {ref, onMounted, onUnmounted } from 'vue'
+
+const x = ref(0)
+const y = ref(0)
+
+function  update(event){
+  x.value = event.pageX
+  y.value = event.pageY
 }
-//生命周期钩子
-onMounted(() => {
-  console.log('The initial count is ${count.value}.')
-    }
-)
+
+onMounted(() => window.addEventListener('mousemove', update))
+onUnmounted(() => window.removeEventListener('mousemove', update))
+
+
 </script>
 
 <style>
