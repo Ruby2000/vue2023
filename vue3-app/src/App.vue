@@ -1,13 +1,16 @@
 <template>
-  <button @click="store.increment()">
-    From B: {{store.count}}
-  </button>
+  <div v-if="error">Oops! Error encountered: {{ error.message }}</div>
+  <div v-else-if="data">
+    Data loaded:
+    <pre>{{ data }}</pre>
+  </div>
+  <div v-else> loading.... </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { useFetch } from "@/fetch"
 
-const data = ref(null)
+const  { data, error } = useFetch('...')
 </script>
 
 <style>
