@@ -1,13 +1,16 @@
 <template>
- <button @click="count++">You clicked me {{ count }} times.</button>
+  <h1>Here are many child components!</h1>
+
+  <ButtonCounter />
+  <ButtonCounter />
+  <ButtonCounter />
+  <ComponentA />
 </template>
 
+
 <script setup>
-import { ref } from 'vue'
+import ButtonCounter from './view/ButtonCounter.vue'
+import ComponentA from "@/view/ComponentA"
 
-const count = ref(0)
+
 </script>
-
-<style>
-
-</style>

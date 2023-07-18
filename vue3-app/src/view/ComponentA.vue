@@ -1,13 +1,15 @@
 <template>
-From A: {{ store.count }}
+  <button @click="count++" >
+    From A: {{ store.count }}
+  </button>
+
 </template>
 
-<script>
+<script setup>
+
 import {store} from "@/store";
 
-export default {
-  name: "ComponentA"
-}
+
 </script>
 
 <style scoped>
