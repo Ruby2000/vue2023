@@ -1,32 +1,31 @@
 <template>
-  <p>Has publicshed books:</p>
-  <span>{{ author.books.length > 0 ? 'Yes': 'No'}}</span>
+ <button @click="increment">count is :{{ count }}</button>
 </template>
 
 <script>
 export default {
+//data() 返回的属性将会成为响应式的状态
+//  并且暴露在'this'上
   data(){
     return{
-      author: {
-        name: 'John Doe',
-        books: [
-            'vue 2 - Advanced Guide',
-            'Vue 3 - Basic Guide',
-            'Vue 4 - The Mystery'
-        ]
-      }
+      count: 0
     }
   },
- computed: {
-    //一个计算属性的getter
-    publishedBooksMessage() {
-       //'this'指出当前组件实例
-      return this.author.books.length > 0 ? 'Yes' : 'No'
+//  methods是一些用来更改状态与触发更新的函数
+//  它们可以在模板中作为事件处理器绑定
+  methods:{
+    increment() {
+      this.count++
     }
- }
+  },
+//  生命周期钩子会在组件生命周期的各个不同阶段被调用
+//  例如这个函数就会在组件挂载完成后被调用
+  mounted() {
+    console.log('The initial count is ${this.count}.')
+  }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
