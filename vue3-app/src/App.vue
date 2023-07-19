@@ -1,24 +1,43 @@
 <template>
   <div>
-    <el-button mb-2 @click="toggle">Switch Language</el-button>
-    <br />
-    <el-config-provider :locale="locale">
-      <el-table mb-1 :data="[]" />
-      <el-pagination :total="100" />
+    <div m="b-2">
+      <el-checkbox v-model="config.autoInsertSpace"
+      >autoInsertSpace</el-checkbox
+      >
+    </div>
+
+    <el-config-provider :button="config">
+      <el-button>中文</el-button>
     </el-config-provider>
   </div>
 </template>
 
-<script lang="js" setup>
-import { computed, ref } from 'vue'
-import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
-import en from 'element-plus/dist/locale/en.mjs'
+<script >
 
-const language = ref('zh-cn')
-const locale =computed(() => (language.value === 'zh-cn' ? zhCn : en))
 
-const toggle = () => {
-  language.value = language.value === 'zh-cn' ? 'en' : 'zh-cn'
+import { reactive } from 'vue'
+import { ElMessage } from 'element-plus'
+const config = reactive({
+  max: 3,
+})
+const open = () => {
+  ElMessage('This is a message.')
 }
+export default {
+//  并且暴露在'this'上
+  data() {
+    return{
+      // store: store,
+      open:null,
+      config:null,
+    }
 
+  },
+  created() {
+    this.open = open;
+    this.config = config;
+
+  }
+}
 </script>
+
