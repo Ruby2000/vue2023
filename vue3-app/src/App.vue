@@ -12,9 +12,7 @@
   </div>
 </template>
 
-<script >
-
-
+<script>
 import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 const config = reactive({
