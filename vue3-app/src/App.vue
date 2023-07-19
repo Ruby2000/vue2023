@@ -2,13 +2,39 @@
   <div class="common-layout">
     <el-container>
       <el-aside width="200px">
-        <el-button type="primary" loading>
-          <template #loading>
-            <div class="custom-loading">
-              <svg class="circular" viewBox="-10, -10, 50, 50">
-                <path
-                    class="path"
-                    d="
+      </el-aside>
+      <el-container>
+        <el-header>
+
+          <el-row :gutter="10">
+            <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
+              <div class="grid-content ep-bg-purple"/>
+            </el-col>
+            <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"
+            ><div class="grid-content ep-bg-purple-light"
+            /></el-col>
+            <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"
+            ><div class="grid-content ep-bg-purple"
+            /></el-col>
+            <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"
+            ><div class="grid-content ep-bg-purple-light"
+            /></el-col>
+          </el-row>
+
+        </el-header>
+        <el-main >
+            <el-scrollbar height="400px">
+              <p v-for="item in 20" :key="item" class="scrollbar-demo-item">{{ item }}</p>
+            </el-scrollbar>
+        </el-main>
+        <el-footer>
+          <el-button type="primary" loading>
+            <template #loading>
+              <div class="custom-loading">
+                <svg class="circular" viewBox="-10, -10, 50, 50">
+                  <path
+                      class="path"
+                      d="
                      M 30 15
                      L 28 17
                      M 25.61 25.61
@@ -16,17 +42,13 @@
                      A 15 15, 0, 1, 1, 27.99 7.5
                      L 15 15
                      "
-                    style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
-              </svg>
-            </div>
-          </template>
-          Loading
-        </el-button>
-      </el-aside>
-      <el-container>
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
-        <el-footer>Footer</el-footer>
+                      style="stroke-width: 4px; fill: rgba(0, 0, 0, 0)"/>
+                </svg>
+              </div>
+            </template>
+            响应中
+          </el-button>
+        </el-footer>
       </el-container>
     </el-container>
   </div>
@@ -37,6 +59,24 @@
 </script>
 
 <style scoped>
+.scrollbar-demo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--el-color-primary-light-9);
+  color: var(--el-color-primary);
+}
+.el-col{
+  border-radius: 4px;
+}
+.grid-content{
+  border-radius: 4px;
+  min-height: 36px;
+}
 .el-header{
   background-color: aqua;
   color: #333;
