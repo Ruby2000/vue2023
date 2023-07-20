@@ -1,11 +1,11 @@
-<template>
+<template >
 
-  <div class="common-layout">
+  <div class="common-layout" >
     <el-container>
       <el-aside width="200px">Aside</el-aside>
       <el-container>
         <el-header>
-          <html class="dark">
+          <html >
         <el-progress :percentage ="10" :format ="format"></el-progress>
         </html>
         </el-header>
@@ -13,9 +13,10 @@
           <el-config-provider :message="config">
             <el-button @click="open">OPEN</el-button>
           </el-config-provider>
+          <el-button type="primary" :loading="true">加载中</el-button>
         </div></el-main>
         <el-footer>
-
+          <el-link href="https://element-plus.org" type="success">success</el-link>
         </el-footer>
       </el-container>
     </el-container>
@@ -58,6 +59,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.el-link {
+  margin-right: 8px;
+}
+
 
 </style>
