@@ -1,59 +1,47 @@
 <template>
   <div>
-    <h1>vue3.0</h1>
-    <input type="text" v-model="p.startName" >
-    <br>
-    <input type="text" v-model="p.endName" >
-    <br>
-    <input type="text" v-model="p.fullName" >
-    <h1>{{personone}}</h1>
+    <h1>{{num.y}}</h1>
+    <h1>{{num1.y}}</h1>
+    <button @click="num.y++">num ++ 1</button>
+    <button @click="num1.y++">num1 ++ 1</button>
     <hr>
-    <h3>{{nameone}}</h3>
-    <h3>{{sexone}}</h3>
-    <h3>{{content.fit.age}}</h3>
-    <h3>{{content.fit.money}}</h3>
-    <button @click="nameone+=`--`">修改名字</button>
-    <button @click="sexone+=`-`">修改性别</button>
-    <button @click="content.fit.age+=1">修改性别</button>
-    <button @click="content.fit.money+=1">修改年薪</button>
+    <h1>{{person}}</h1>
+    <h3>姓名：{{ name }}</h3>
+    <h3>年龄：{{ age }}</h3>
+    <h3>薪资：{{ content.fit.salary }}</h3>
+    <hr>
+    <button @click="name+=`--`">修改名字</button>
+    <button @click="age++">修改年龄</button>
+    <button @click="content.fit.salary++">修改年薪</button>
   </div>
 </template>
 
 <script>
-import { reactive,computed,toRefs } from "vue";
-
+import { shallowRef, shallowReactive,toRefs } from 'vue';
 export default {
   name: "App",
   setup() {
-    let personone = reactive(({
-      nameone: '张三',
-      sexone:"男",
+    // shallowReactive 浅响应式
+    let person = shallowReactive({
+      name:"张三",
+      age:18,
       content:{
         fit:{
-          age:18,
-          money:20
+          salary:20
         }
       }
-    }))
-    let p = reactive({
-      startName:"张",
-      endName:'三'
     })
-    // get 当属性被读取时 触发
-    // set 当属性被修改时 触发
-    p.fullName = computed({
-      get(){
-        return p.startName + '-' + p.endName
-      },
-      set(val){
-        let res = val.split('-')
-        p.startName = res[0]
-        p.endName = res[1]
-      }
+    // 被 shallowRef 包裹的对象无法实现响应式
+    let num = shallowRef({
+      y:0
+    })
+    let num1 = shallowRef({
+      y:0
     })
     return {
-      p,personone,
-      ...toRefs(personone)
+      num,
+      num1,
+      ...toRefs(person)
     };
   }
 };
@@ -66,4 +54,3 @@ export default {
   margin-top: 60px;
 }
 </style>
-
