@@ -16,7 +16,13 @@
           <el-button type="primary" :loading="true">加载中</el-button>
         </div></el-main>
         <el-footer>
-          <el-link href="https://element-plus.org" type="success">success</el-link>
+          <el-link href="https://element-plus.org" type="primary">success</el-link>
+
+          <el-icon :size="size" :color="color">
+            <Edit />
+          </el-icon>
+          <!-- 或者独立使用它，不从父级获取属性 -->
+          <el-icon :size="size" :color="color" ><Sunrise /></el-icon>
         </el-footer>
       </el-container>
     </el-container>
@@ -30,6 +36,7 @@
 
 <script>
 
+import {ArrowDown} from "@element-plus/icons-vue";
 import { reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 const config = reactive({
@@ -40,6 +47,11 @@ const open = () => {
 }
 
 export default {
+  name: "App",
+  computed:{
+    ArrowDown
+  },
+
   methods:{
     format(percentage){
       return percentage === 100 ? '满' : `${percentage}%`;
