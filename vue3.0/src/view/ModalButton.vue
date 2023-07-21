@@ -6,7 +6,7 @@
     <div v-if="modalOpen" class="modal">
       <div>
         I'm a teleported modal(My parent is "body
-        <button @clifk="modalOpen =false">close</button>
+        <button @click="modalOpen = false">close</button>
       </div>
     </div>
   </teleport>

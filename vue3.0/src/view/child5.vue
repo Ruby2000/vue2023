@@ -32,14 +32,17 @@ export default {
           jname: '前端开发',
         },
       },
-      like:['唱', '跳', 'rap']
+
     }
     console.log("---------")
   },
   methods:{
-    deleteHB(){
-        },
     add(){
+         this.person.like=['唱', '跳', 'rap']
+    },
+    deleteHB(){
+      delete this.person.like
+
     }
   }
 }
