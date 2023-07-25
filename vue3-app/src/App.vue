@@ -6,7 +6,7 @@
       <el-container>
         <el-header>
           <html >
-        <el-progress :percentage ="10" :format ="format"></el-progress>
+        <el-progress :percentage ="20" :format ="format"></el-progress>
         </html>
         </el-header>
         <el-main ><div>

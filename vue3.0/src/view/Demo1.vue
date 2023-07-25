@@ -7,21 +7,25 @@
 
 <script>
 import useMouse from 'mouse'
-const  { x, y } = useMouse('.demo_1')
+
 export default {
-  name: "Demo1",
   data(){
     return{
-      x,y
+      x:"x",
+      y:"y"
     };
   },
+  created() {
+    this.x = useMouse
+    this.y = useMouse
 
+  },
 }
 </script>
 
 <style scoped>
 .demo_1{
   height: 100px;
-  background: salmon;
+  background: lavenderblush;
 }
 </style>

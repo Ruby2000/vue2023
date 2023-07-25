@@ -10,11 +10,12 @@
     </Suspense>
     <Child1/>
     <Child7/>
-
+    <Child8/>
     <Child9/>
   <ModalButton/>
 
   </div>
+
 </template>
 
 <script>
@@ -23,12 +24,13 @@ import Child1 from "@/view/child1";
 import ModalButton from "@/view/ModalButton";
 import Child7 from "@/view/child7";
 import Child9 from "@/view/child9";
+import Child8 from "@/view/child8";
 
 
 
 export default {
   name: "App",
-  components: {Child9, Child7, ModalButton, Child1},
+  components: {Child8, Child9, Child7, ModalButton, Child1},
   setup() {
     let car = reactive({
       name:"奔驰",
