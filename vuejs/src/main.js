@@ -7,5 +7,5 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 
 const app = createApp(App)
-app.use(element,router)
+app.use(element)
     app.mount('#app')
